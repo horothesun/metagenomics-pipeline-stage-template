@@ -1,4 +1,4 @@
-# How to integrate the "{{ cookiecutter.stage_display_name }}" stage
+# How to integrate the "{{ cookiecutter.stage_name }}" stage
 
 1. Add `.github/workflows/{{ cookiecutter.stage_folder_name }}-linux.yml` to your root `.github/workflows/` folder.
 2. Add the `{{ cookiecutter.stage_folder_name }}/` folder to your project root.
@@ -12,7 +12,7 @@
   b) a dedicated section similar to the following
 
 ````markdown
-## {{ cookiecutter.stage_display_name }}
+## {{ cookiecutter.stage_name }}
 
 ```bash
 conda env update --file {{ cookiecutter.stage_folder_name }}/environment.yml

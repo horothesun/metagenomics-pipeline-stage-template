@@ -1,4 +1,4 @@
-name: {{ cookiecutter.stage_display_name }}
+name: {{ cookiecutter.stage_name }}
 
 on:
   push:
@@ -53,7 +53,7 @@ jobs:
         conda env list
         conda env export
 
-    - name: Run {{ cookiecutter.stage_display_name }}
+    - name: Run {{ cookiecutter.stage_name }}
       run: |
         ./$FOLDER_NAME/run.sh
 

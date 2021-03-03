@@ -10,7 +10,7 @@
 
 ```bash
 cookiecutter https://github.com/horothesun/metagenomics-pipeline-stage-template
-cd <stage_display_name>
+cd <stage_name>
 cat How-to-integrate-the-stage.md
 ```
 

@@ -1,5 +1,5 @@
 {
-  "stage_display_name": "My stage",
-  "stage_folder_name": "my_stage",
-  "stage_environment_name": "my-stage-env"
+  "stage_name": "My stage",
+  "stage_folder_name": "{{ cookiecutter.stage_name.lower().strip().replace(' ', '_').replace(':', '_').replace('-', '_').replace('!', '_') }}",
+  "stage_environment_name": "{{ cookiecutter.stage_name.lower().strip().replace(' ', '-').replace(':', '-').replace('_', '-').replace('!', '-') }}-env"
 }
