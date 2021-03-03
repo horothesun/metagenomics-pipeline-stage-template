@@ -1,5 +1,7 @@
 # Metagenomics pipeline - Stage template
 
+[![CI Linux](https://github.com/horothesun/metagenomics-pipeline-stage-template/actions/workflows/ci-linux.yml/badge.svg)](https://github.com/horothesun/metagenomics-pipeline-stage-template/actions/workflows/ci-linux.yml)
+
 ## Requirements
 
 - [Cookiecutter](https://cookiecutter.readthedocs.io/)
