@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       FOLDER_NAME: {{ cookiecutter.stage_folder_name }}
       CONDA_ENV_NAME: {{ cookiecutter.stage_environment_name }}
