@@ -1,0 +1,9 @@
+name: my-stage-env
+
+channels:
+- bioconda
+- conda-forge
+
+dependencies:
+- fastqc=0.11.9
+- emacs=27.1
