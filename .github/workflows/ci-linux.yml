@@ -28,11 +28,11 @@ jobs:
       run: pip install cookiecutter
 
     - name: Generate stage
-      run: cookiecutter . --no-input --verbose project_name="Generated Stage"
+      run: cookiecutter . --no-input --verbose stage_name="Generated Stage"
 
     - name: Upload generated stage
       uses: actions/upload-artifact@v2
       with:
         name: generated-stage
-        path: My stage
+        path: generated-stage/
         if-no-files-found: error
