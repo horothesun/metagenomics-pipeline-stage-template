@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- [Cookiecutter](https://cookiecutter.readthedocs.io/)
+- Cookiecutter ([install](https://cookiecutter.readthedocs.io/en/latest/installation.html))
 
 ## Generate new stage
 
