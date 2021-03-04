@@ -12,7 +12,7 @@
 cd <main project folder>
 cookiecutter https://github.com/horothesun/metagenomics-pipeline-stage-template
 cd <stage folder>
-cat "__REMOVE__How-to-integrate-the-stage.md"
+cat __REMOVE__How-to-integrate-the-stage.md
 ```
 
 and follow the steps to integrate it with your project.
