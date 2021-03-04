@@ -9,9 +9,9 @@
 ## Usage
 
 ```bash
-cd <main project>
+cd <main project folder>
 cookiecutter https://github.com/horothesun/metagenomics-pipeline-stage-template
-cd <stage_folder_name>
+cd <stage folder>
 cat "__REMOVE__ How-to-integrate-the-stage.md"
 ```
 
