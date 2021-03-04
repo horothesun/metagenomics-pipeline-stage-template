@@ -33,6 +33,6 @@ jobs:
     - name: Upload generated stage
       uses: actions/upload-artifact@v2
       with:
-        name: generated-stage
-        path: Generated Stage/
+        name: generated_stage
+        path: generated_stage/
         if-no-files-found: error

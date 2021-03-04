@@ -6,12 +6,13 @@
 
 - Cookiecutter ([install](https://cookiecutter.readthedocs.io/en/latest/installation.html))
 
-## Generate new stage
+## Usage
 
 ```bash
+cd <main project>
 cookiecutter https://github.com/horothesun/metagenomics-pipeline-stage-template
-cd <stage_name>
-cat How-to-integrate-the-stage.md
+cd <stage_folder_name>
+cat "***REMOVE*** How-to-integrate-the-stage.md"
 ```
 
 and follow the steps to integrate it with your project.
