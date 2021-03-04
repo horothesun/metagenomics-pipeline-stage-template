@@ -13,7 +13,7 @@
 5. Update the root `README.md` file with  a dedicated section similar to the following
 
 ````markdown
-## {{ cookiecutter.stage_name }}
+### {{ cookiecutter.stage_name }}
 
 ```bash
 conda env update --file {{ cookiecutter.stage_folder_name }}/environment.yml
