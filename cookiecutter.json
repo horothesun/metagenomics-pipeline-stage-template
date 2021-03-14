@@ -1,5 +1,6 @@
 {
   "stage_name": "My stage",
   "stage_folder_name": "{{ cookiecutter.stage_name.lower().strip().replace(' ', '_').replace(':', '_').replace('-', '_').replace('!', '_') }}",
-  "stage_environment_name": "{{ cookiecutter.stage_name.lower().strip().replace(' ', '-').replace(':', '-').replace('_', '-').replace('!', '-') }}-env"
+  "stage_environment_name": "{{ cookiecutter.stage_name.lower().strip().replace(' ', '-').replace(':', '-').replace('_', '-').replace('!', '-') }}-env",
+  "stage_env_var_prefix": "{{ cookiecutter.stage_name.upper().strip().replace(' ', '').replace(':', '').replace('-', '').replace('!', '') }}_"
 }

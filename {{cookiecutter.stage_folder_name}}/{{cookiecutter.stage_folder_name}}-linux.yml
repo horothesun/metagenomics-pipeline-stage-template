@@ -58,6 +58,9 @@ jobs:
     - name: Run {{ cookiecutter.stage_name }}
       run: |
         ./$FOLDER_NAME/run.sh
+      env:
+        {{ cookiecutter.stage_env_var_prefix }}INPUT_FILE: "path/to/file.ext"
+        {{ cookiecutter.stage_env_var_prefix }}OUTPUT_DIR: "path/to/output/dir"
 
     - name: Upload artifact
       run: |

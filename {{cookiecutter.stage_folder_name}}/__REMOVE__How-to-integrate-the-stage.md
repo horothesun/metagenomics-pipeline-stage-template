@@ -17,10 +17,10 @@
 ```bash
 conda env update --file {{ cookiecutter.stage_folder_name }}/environment.yml
 conda activate {{ cookiecutter.stage_environment_name }}
-./{{ cookiecutter.stage_folder_name }}/run.sh <INPUT_FILE>
+export {{ cookiecutter.stage_env_var_prefix }}INPUT_FILE="path/to/file.ext"
+export {{ cookiecutter.stage_env_var_prefix }}OUTPUT_DIR="path/to/output/dir"
+./{{ cookiecutter.stage_folder_name }}/run.sh
 ```
-
-Output files can be found in the `{{ cookiecutter.stage_folder_name }}/out/` folder.
 ````
 
 5. Push your changes to the main project's repo (**do not commit this `.md` file**) and get the new GitHub Action badge code.
