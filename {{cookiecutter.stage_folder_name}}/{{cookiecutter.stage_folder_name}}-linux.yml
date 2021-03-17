@@ -67,6 +67,6 @@ jobs:
         echo "TODO: upload artifact..."
 #      uses: actions/upload-artifact@v2
 #      with:
-#        name: <artifact-name>
+#        name: {{ cookiecutter.stage_folder_name }}_output
 #        path: ${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/out/<file-to-upload>
 #        if-no-files-found: error
