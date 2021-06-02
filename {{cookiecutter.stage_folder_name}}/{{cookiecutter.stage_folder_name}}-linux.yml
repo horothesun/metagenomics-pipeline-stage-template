@@ -15,13 +15,14 @@ jobs:
     env:
       FOLDER_NAME: {{ cookiecutter.stage_folder_name }}
       CONDA_ENV_NAME: {{ cookiecutter.stage_environment_name }}
+      CONDA_ENV_FILE: {{ cookiecutter.stage_folder_name }}/environment.yml
     defaults:
       run:
         shell: bash -l {0}
 
     steps:
     - name: Cancel previous runs
-      uses: styfle/cancel-workflow-action@0.8.0
+      uses: styfle/cancel-workflow-action@0.9.0
       with:
         access_token: ${{ '{{' }} github.token {{ '}}' }}
 
@@ -32,22 +33,27 @@ jobs:
       with:
         python-version: 3.9
 
+    - uses: conda-incubator/setup-miniconda@v2.1.1
+      with:
+        activate-environment: ${{ '{{' }} env.CONDA_ENV_NAME {{ '}}' }}
+        auto-activate-base: false
+        use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+
     - name: Cache conda
       uses: actions/cache@v2
+      id: conda_cache_id
       env:
         # increase this value to reset cache even if environment.yml has not changed
         CACHE_NUMBER: 0
-        CONDA_ENVIRONMENT_FILE: ${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/environment.yml
       with:
-        path: ~/conda_pkgs_dir
-        key: ${{ '{{' }} env.CONDA_ENV_NAME {{ '}}' }}-${{ '{{' }} runner.os {{ '}}' }}-conda-${{ '{{' }} env.CACHE_NUMBER {{ '}}' }}-${{ '{{' }} hashFiles(env.CONDA_ENVIRONMENT_FILE) {{ '}}' }}
+        path: /usr/share/miniconda/envs/${{ '{{' }} env.CONDA_ENV_NAME {{ '}}' }}
+        key: ${{ '{{' }} env.CONDA_ENV_NAME {{ '}}' }}-${{ '{{' }} runner.os {{ '}}' }}-conda-${{ '{{' }} env.CACHE_NUMBER {{ '}}' }}-${{ '{{' }} hashFiles(env.CONDA_ENV_FILE) {{ '}}' }}
 
-    - uses: conda-incubator/setup-miniconda@v2
-      with:
-        activate-environment: ${{ '{{' }} env.CONDA_ENV_NAME {{ '}}' }}
-        channel-priority: flexible
-        environment-file: ${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/environment.yml
-        use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+    - name: Conda env update
+      # only needed when dependencies has been changed
+      if: steps.conda_cache_id.outputs.cache-hit != 'true'
+      run: |
+        conda env update --file $CONDA_ENV_FILE
 
     - name: Conda info
       run: |
