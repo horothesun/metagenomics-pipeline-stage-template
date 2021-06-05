@@ -68,11 +68,13 @@ jobs:
         {{ cookiecutter.stage_env_var_prefix }}INPUT_FILE: "path/to/file.ext"
         {{ cookiecutter.stage_env_var_prefix }}OUTPUT_DIR: "path/to/output/dir"
 
-    - name: Upload artifact
+    - name: Upload run output artifact
       run: |
         echo "TODO: upload artifact..."
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: {{ cookiecutter.stage_folder_name }}_output
-#        path: ${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/out/<file-to-upload>
-#        if-no-files-found: error
+      # uses: actions/upload-artifact@v2
+      # with:
+      #   name: {{ cookiecutter.stage_folder_name }}_output-run_${{ '{{' }} github.run_number {{ '}}' }}-id_${{ '{{' }} github.run_id {{ '}}' }}
+      #   path: |
+      #     ${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/out/
+      #     !${{ '{{' }} env.FOLDER_NAME {{ '}}' }}/out/.gitkeep
+      #   if-no-files-found: error
