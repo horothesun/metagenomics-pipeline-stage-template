@@ -62,11 +62,11 @@ jobs:
         conda env export
 
     - name: Run {{ cookiecutter.stage_name }}
-      run: |
-        ./$FOLDER_NAME/run.sh
       env:
         {{ cookiecutter.stage_env_var_prefix }}INPUT_FILE: "path/to/file.ext"
         {{ cookiecutter.stage_env_var_prefix }}OUTPUT_DIR: "path/to/output/dir"
+      run: |
+        ./$FOLDER_NAME/run.sh
 
     - name: Upload run output artifact
       run: |
